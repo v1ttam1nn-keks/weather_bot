@@ -16,22 +16,28 @@ iso_time = now_time.isoformat()
 split_date, split_time = iso_time.split(sep='T', maxsplit= -1)
 
 
+#TEST_FUNC
+#base_atl = api_request(55.749667, 37.578561)
+#print(base_atl)
 
+def api_request(coord_lat, coord_lon):
+    cloud_base_today = 0.4
+    return cloud_base_today
 
 
 #Функция для api запроса. Возращает значение cloudBase на coord_lat coord_lon
-def api_request(coord_lat, coord_lon):
-    r = requests.get(f'https://api.tomorrow.io/v4/weather/forecast?location={coord_lat},{coord_lon}&apikey={API_key}')
-    _clean_requests_data = r.json()
-    _JSON_DATA = json.dumps(_clean_requests_data, indent= 4, sort_keys = False, ensure_ascii=False)
-    data_str = json.dumps(_clean_requests_data, indent = 2)
-    data_dict = json.loads(data_str)
-    data_list = (data_dict['timelines']['minutely'])
-    for item in data_list:
-        if split_date in item['time']:
-            cloud_base_today = (item['values']['cloudBase'])
-            return cloud_base_today
-            break 
+#def api_request(coord_lat, coord_lon):
+#    r = requests.get(f'https://api.tomorrow.io/v4/weather/forecast?location={coord_lat},{coord_lon}&apikey={API_key}')
+#    _clean_requests_data = r.json()
+#    _JSON_DATA = json.dumps(_clean_requests_data, indent= 4, sort_keys = False, ensure_ascii=False)
+#    data_str = json.dumps(_clean_requests_data, indent = 2)
+#    data_dict = json.loads(data_str)
+#    data_list = (data_dict['timelines']['minutely'])
+#    for item in data_list:
+#        if split_date in item['time']:
+#            cloud_base_today = (item['values']['cloudBase'])
+#            return cloud_base_today
+#            break 
            
 
 
@@ -49,25 +55,19 @@ def parse_kml(kml_filename):
             coords_dict[(float(lat), float(lon))] = {"cloud_height": 0.0}
     return coords_dict
 
-def add_base_in_dict():
-    base_alt_dict =parse_kml('test.kml')     
+def add_base_in_dict(kml_from_bot):
+    base_alt_dict =parse_kml(kml_from_bot)     
     for coords in base_alt_dict:
         lat , lon = coords
         base_alt_dict[coords] = api_request(lat, lon)
     return(base_alt_dict)
 
-print(add_base_in_dict())
+print(add_base_in_dict('test.kml'))
 
 
     
         
-#TEST_FUNC
-#base_atl = api_request(55.749667, 37.578561)
-#print(base_atl)
 
-#def api_request(coord_lat, coord_lon):
-#    cloud_base_today = 0.4
-#    return cloud_base_today
 
     
 
