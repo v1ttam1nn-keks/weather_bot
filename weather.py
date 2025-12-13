@@ -62,7 +62,6 @@ def add_base_in_dict(kml_from_bot):
         base_alt_dict[coords] = api_request(lat, lon)
     return(base_alt_dict)
 
-print(add_base_in_dict('test.kml'))
 
 
     
