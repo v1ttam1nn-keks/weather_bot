@@ -20,25 +20,25 @@ split_date, split_time = iso_time.split(sep='T', maxsplit= -1)
 #base_atl = api_request(55.749667, 37.578561)
 #print(base_atl)
 
-def api_request(coord_lat, coord_lon):
-    cloud_base_today = 0.4
-    return cloud_base_today
+#def api_request(coord_lat, coord_lon):
+#    cloud_base_today = 0.4
+#    return cloud_base_today
 
 
 #Функция для api запроса. Возращает значение cloudBase на coord_lat coord_lon
-#def api_request(coord_lat, coord_lon):
-#    r = requests.get(f'https://api.tomorrow.io/v4/weather/forecast?location={coord_lat},{coord_lon}&apikey={API_key}')
-#    _clean_requests_data = r.json()
-#    _JSON_DATA = json.dumps(_clean_requests_data, indent= 4, sort_keys = False, ensure_ascii=False)
-#    data_str = json.dumps(_clean_requests_data, indent = 2)
-#    data_dict = json.loads(data_str)
-#    data_list = (data_dict['timelines']['minutely'])
-#    for item in data_list:
-#        if split_date in item['time']:
-#            cloud_base_today = (item['values']['cloudBase'])
-#            return cloud_base_today
-#            break 
-           
+def api_request(coord_lat, coord_lon):
+    r = requests.get(f'https://api.tomorrow.io/v4/weather/forecast?location={coord_lat},{coord_lon}&apikey={API_key}')
+    _clean_requests_data = r.json()
+    _JSON_DATA = json.dumps(_clean_requests_data, indent= 4, sort_keys = False, ensure_ascii=False)
+    data_str = json.dumps(_clean_requests_data, indent = 2)
+    data_dict = json.loads(data_str)
+    data_list = (data_dict['timelines']['minutely'])
+    for item in data_list:
+        if split_date in item['time']:
+            cloud_base_today = (item['values']['cloudBase'])
+            return cloud_base_today
+            break 
+          
 
 
 
