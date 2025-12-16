@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Карта без названия</name>
+	<gx:CascadingStyle kml:id="__managed_style_27C8EE98773C5CEFF07E">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_1D259BAE183C5CEFF07E">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_0D771769923C5CEFF07E">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_1D259BAE183C5CEFF07E</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_27C8EE98773C5CEFF07E</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark id="0174F134AD3C5CEFF076">
+		<name>Метка без названия</name>
+		<LookAt>
+			<longitude>37.40154066599883</longitude>
+			<latitude>50.96521762146244</latitude>
+			<altitude>-1.414648398423424e-09</altitude>
+			<heading>-49.92498070619227</heading>
+			<tilt>5.164284344890739</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>410149.3555902229</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0D771769923C5CEFF07E</styleUrl>
+		<Point>
+			<coordinates>36.70064028382419,50.51138808524773,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="03033475E93C5CF00D48">
+		<name>Метка без названия</name>
+		<LookAt>
+			<longitude>37.25413372979559</longitude>
+			<latitude>51.01581422189048</latitude>
+			<altitude>0</altitude>
+			<heading>-53.74993478007622</heading>
+			<tilt>7.655928952869084</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>411477.9530724366</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0D771769923C5CEFF07E</styleUrl>
+		<Point>
+			<coordinates>37.00750061519951,49.90541865345553,-1.414648398423424e-09</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0060B882DA3C5CF01FAC">
+		<name>Метка без названия</name>
+		<LookAt>
+			<longitude>37.25413372979559</longitude>
+			<latitude>51.01581422189048</latitude>
+			<altitude>0</altitude>
+			<heading>-53.74993478007622</heading>
+			<tilt>7.655928952869084</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>411477.9530724366</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0D771769923C5CEFF07E</styleUrl>
+		<Point>
+			<coordinates>36.29783087994556,49.99047884058584,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0A0261BD153C5CF02D40">
+		<name>Метка без названия</name>
+		<LookAt>
+			<longitude>37.25413372979559</longitude>
+			<latitude>51.01581422189048</latitude>
+			<altitude>0</altitude>
+			<heading>-53.74993478007622</heading>
+			<tilt>7.655928952869084</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>411477.9530724366</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0D771769923C5CEFF07E</styleUrl>
+		<Point>
+			<coordinates>35.54784279309624,50.1678022155503,-7.073241992117119e-10</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="00D64F4F393C5CF0373F">
+		<name>Метка без названия</name>
+		<LookAt>
+			<longitude>37.25413372979559</longitude>
+			<latitude>51.01581422189048</latitude>
+			<altitude>0</altitude>
+			<heading>-53.74993478007622</heading>
+			<tilt>7.655928952869084</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>411477.9530724366</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0D771769923C5CEFF07E</styleUrl>
+		<Point>
+			<coordinates>36.59601650773914,50.56973872277327,0</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>

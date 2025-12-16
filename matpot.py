@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from weather import add_base_in_dict
 
-dict = add_base_in_dict('gerber_flight.kml')
+dict = add_base_in_dict('test.kml')
 coords = list(dict.keys())
 clouds = list(dict.values())
 x = range(len(coords))
@@ -13,10 +13,10 @@ labels = [f"{lat:.4f}, {lon:.4f}" for lat, lon in coords]
 plt.xticks(x, labels, rotation=45, ha='right')
 
 plt.tight_layout()
-plt.savefig("plot.png")
+path_to_pict = plt.savefig("plot.png")
+print(path_to_pict)
 
-
-plt.savefig("plot.png")
+plt.savefig("plot.png") 
 
 
 
