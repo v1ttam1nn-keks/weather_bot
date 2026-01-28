@@ -13,8 +13,8 @@ labels = [f"{lat:.4f}, {lon:.4f}" for lat, lon in coords]
 plt.xticks(x, labels, rotation=45, ha='right')
 
 plt.tight_layout()
-path_to_pict = plt.savefig("plot.png")
-print(path_to_pict)
+plt.savefig("plot.png")
+
 
 plt.savefig("plot.png") 
 

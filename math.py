@@ -8,33 +8,40 @@ def epsi(RH, T):
     H_cloud = 122 * (T - T_d)
     print(H_cloud)
 
-P = 745 
-T = -11
-RH = 83
+#P = 745 
+#T = -11
+#RH = 83
 
-def from_mm_to_Gpa(P): 
-    Gpa = P * 1.333
-    #print(Gpa)
-    return Gpa
+#def from_mm_to_Gpa(P): 
+#    Gpa = P * 1.333
+#    #print(Gpa)
+#    return Gpa
+#    
+#
+#Gpa = from_mm_to_Gpa(P)
+#
+#def claus(RH,T,Gpa):
+#    eT=6.112 * math.exp((17.67*T) / (T+243.5))
+#    e = (RH/100) * eT
     
-
-Gpa = from_mm_to_Gpa(P)
-
-def claus(RH,T,Gpa):
-    eT=6.112 * math.exp((17.67*T) / (T+243.5))
-    e = (RH/100) * eT
-    
-print(epsi(84, 35))
+print(epsi(86, -7))
     
 
 #Формула Ипполитова
 
+a = 2 
+b = 2
+
+print(a is b) ## False
 
 
 
 
 
-claus(0,0,Gpa)
+
+
+
+#claus(0,0,Gpa)
         
  
     

@@ -5,7 +5,6 @@ import os
 bot = telebot.TeleBot('7525203380:AAGfPBAaHXJfN0Y5_XBRH5ZUCjqVeIQoUKE')
 
 
-
 @bot.message_handler(commands=['start'])
 def start_command(message):
     bot.reply_to(message, "HUYTAM")

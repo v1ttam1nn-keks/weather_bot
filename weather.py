@@ -10,7 +10,7 @@ import math
 
 
 #API_key = "kIj535sb0zxhVA9FyFaefgNMAjw8qauP"
-yandex_key = '4bbcdbc3-5885-44e3-8fda-b87c968678d5'
+yandex_key = 'cf52dfeb-61e5-4f6e-a573-8b9349b6c08c'
 
 
 #now_time = datetime.now(timezone.utc)
@@ -22,13 +22,28 @@ yandex_key = '4bbcdbc3-5885-44e3-8fda-b87c968678d5'
 
 
 
-#TEST_FUNC
+#TEST_FUNCВНГО = 208 (Т – τ
 #base_atl = api_request(55.749667, 37.578561)
 #print(base_atl)
 
 #def api_request(coord_lat, coord_lon):
 #    cloud_base_today = 0.4
 #    return cloud_base_today
+#
+def epsi(RH, T): 
+    b = 237.7 
+    a = 17.27
+    RH = RH / 100 
+    fun = (a * T) / (b * T) + math.log(RH) 
+    Tp = (b * fun) / (a - fun)  
+    print(Tp)
+    #H_cloud = 208 * (T - Tp)
+    ##T_d = T - (100 - RH)/5
+    #print(H_cloud)
+    #return H_cloud
+
+epsi(75, -19)
+
 
 def api_request_yandex(coord_lat, coord_lon):
     headers = {
@@ -45,29 +60,17 @@ def api_request_yandex(coord_lat, coord_lon):
     fact_prec_type = fact['prec_type'] # #0 — без осадков. 1 — дождь.2 — дождь со снегом.3 — снег.4 — град.
     fact_cloudness = fact['cloudness'] #0 — ясно 0.25 — малооблачно.0.5 — облачно с прояснениями.0.75 — облачно с прояснениями 1 — пасмурно.
     fact_humidity = fact['humidity']
-    #print(fact_cloudness, fact_temp, fact_condition, fact_pressure_pa,fact_cloudness, fact_prec_type)
-    #data = {
-    #    "temp": fact["temp"],
-    #    "humidity": fact["humidity"],
-    #    "pressure_pa": fact["pressure_pa"],
-    #    "cloudness": fact["cloudness"],
-    #    "prec_type": fact["prec_type"],
-    #    "condition": fact["condition"]
-    #}
-    #print(fact_temp)
-    print(json_parse)
-    #print(fact_humidity)
-    return epsi(fact_humidity, fact_temp)
+    #print(fact_humidity, fact_temp)
+    h_cloud = epsi(fact_humidity, fact_temp)
+    print(h_cloud) 
+    return h_cloud
+    
 
-#api_request_yandex(55.727199, 37.575815)
+#api_request_yandex(52.529782, 52.748256)
 
 
-def epsi(RH, T): 
-    #print(RH)
-    #print(T)
-    T_d = T - (100 - RH)/5
-    H_cloud = 122 * (T - T_d)
-    return H_cloud
+
+
 #cloud_base = epsi(RH, T)
 #print(cloud_base)
 
@@ -88,24 +91,7 @@ def epsi(RH, T):
 #            return cloud_base_today
 #            break 
 
-#def parse_kml(kml_filename):
-#    tree = ET.parse(f"./{kml_filename}")
-#    root = tree.getroot()
-#    ns = {"kml": "http://www.opengis.net/kml/2.2"}
-#    coords_dict = {}
-#    for coords_tag in root.findall(".//kml:coordinates", ns):
-#        coords_text = coords_tag.text.strip()
-#        for coord_str in coords_text.split():
-#            lon, lat, *_ = coord_str.split(",")
-#            coords_dict[(float(lat), float(lon))] = {"cloud_height": 0.0}
-#    a = len(coords_dict)
-#    print(a)
-#    if a > 100:
-#        return False
-#    else:
-#        return coords_dict
 def parse_kml(kml_filename):
-    
 
     # Парсим KML
     tree = ET.parse(f"./{kml_filename}")
@@ -155,7 +141,14 @@ def add_base_in_dict(kml_from_bot):
         base_alt_dict[coords] = api_request_yandex(lat, lon)
     #print(base_alt_dict)
     return(base_alt_dict)
-    
+
+class tg_user:
+    def __init__(self, tg_user_id, last_kml_name, last_req_csv):
+        self.tg_user_id = tg_user_id
+        self.a
+
+
+
 
 #print(add_base_in_dict('gerber_first_track.kml'))
 
@@ -164,3 +157,4 @@ def add_base_in_dict(kml_from_bot):
 #https://www.youtube.com/watch?v=rIhygmw9HZM
 #https://ru.stackoverflow.com/questions/1395760/%D0%A0%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D1%8C-%D0%BA%D0%BE%D1%80%D1%82%D0%B5%D0%B6-%D0%BD%D0%B0-%D0%B4%D0%B2%D0%B5-%D1%87%D0%B0%D1%81%D1%82%D0%B8
 #https://pythonworld.ru/tipy-dannyx-v-python/kortezhi-tuple.html
+##Точка Росы https://znanierussia.ru/articles/%D0%A2%D0%BE%D1%87%D0%BA%D0%B0_%D1%80%D0%BE%D1%81%D1%8B
