@@ -6,30 +6,11 @@ import time
 from datetime import datetime, timezone
 from fastkml import kml
 import xml.etree.ElementTree as ET
-import math
-
-
-#API_key = "kIj535sb0zxhVA9FyFaefgNMAjw8qauP"
-yandex_key = 'cf52dfeb-61e5-4f6e-a573-8b9349b6c08c'
-
-
-#now_time = datetime.now(timezone.utc)
-#iso_time = now_time.isoformat()
-#split_date, split_time = iso_time.split(sep='T', maxsplit= -1)
-#
-#
-#in_date = 2025-12-22
 
 
 
-#TEST_FUNCВНГО = 208 (Т – τ
-#base_atl = api_request(55.749667, 37.578561)
-#print(base_atl)
+yandex_key = 'asd'
 
-#def api_request(coord_lat, coord_lon):
-#    cloud_base_today = 0.4
-#    return cloud_base_today
-#
 def epsi(RH, T): 
     b = 237.7 
     a = 17.27
@@ -37,10 +18,8 @@ def epsi(RH, T):
     fun = (a * T) / (b * T) + math.log(RH) 
     Tp = (b * fun) / (a - fun)  
     print(Tp)
-    #H_cloud = 208 * (T - Tp)
-    ##T_d = T - (100 - RH)/5
-    #print(H_cloud)
-    #return H_cloud
+    H_cloud = 208 * (T - Tp)
+    return H_cloud
 
 epsi(75, -19)
 
@@ -65,32 +44,6 @@ def api_request_yandex(coord_lat, coord_lon):
     print(h_cloud) 
     return h_cloud
     
-
-#api_request_yandex(52.529782, 52.748256)
-
-
-
-
-#cloud_base = epsi(RH, T)
-#print(cloud_base)
-
-
-
-
-#Функция для api запроса. Возращает значение cloudBase на coord_lat coord_lon
-#def api_request(coord_lat, coord_lon):
-#    r = requests.get(f'https://api.tomorrow.io/v4/weather/forecast?location={coord_lat},{coord_lon}&apikey={API_key}')
-#    _clean_requests_data = r.json()
-#    _JSON_DATA = json.dumps(_clean_requests_data, indent= 4, sort_keys = False, ensure_ascii=False)
-#    data_str = json.dumps(_clean_requests_data, indent = 2)
-#    data_dict = json.loads(data_str)
-#    data_list = (data_dict['timelines']['minutely'])
-#    for item in data_list:
-#        if split_date in item['time']:
-#            cloud_base_today = (item['values']['cloudBase'])
-#            return cloud_base_today
-#            break 
-
 def parse_kml(kml_filename):
 
     # Парсим KML
@@ -138,23 +91,8 @@ def add_base_in_dict(kml_from_bot):
     
     for coords in base_alt_dict:
         lat , lon = coords
+
         base_alt_dict[coords] = api_request_yandex(lat, lon)
     #print(base_alt_dict)
     return(base_alt_dict)
 
-class tg_user:
-    def __init__(self, tg_user_id, last_kml_name, last_req_csv):
-        self.tg_user_id = tg_user_id
-        self.a
-
-
-
-
-#print(add_base_in_dict('gerber_first_track.kml'))
-
-#docks
-#https://habr.com/ru/articles/960256/
-#https://www.youtube.com/watch?v=rIhygmw9HZM
-#https://ru.stackoverflow.com/questions/1395760/%D0%A0%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D1%8C-%D0%BA%D0%BE%D1%80%D1%82%D0%B5%D0%B6-%D0%BD%D0%B0-%D0%B4%D0%B2%D0%B5-%D1%87%D0%B0%D1%81%D1%82%D0%B8
-#https://pythonworld.ru/tipy-dannyx-v-python/kortezhi-tuple.html
-##Точка Росы https://znanierussia.ru/articles/%D0%A2%D0%BE%D1%87%D0%BA%D0%B0_%D1%80%D0%BE%D1%81%D1%8B
