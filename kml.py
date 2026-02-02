@@ -18,6 +18,7 @@ class Kml_Parser:
                 all_coords.append((float(lat), float(lon)))
         
         total_coords = len(all_coords)
+        print(total_coords)
         
         if total_coords > 15000:
             return False
@@ -32,14 +33,15 @@ class Kml_Parser:
 
 
     def calic_step(self, total: int) -> int:
-        
         if 5001 <= total <= 15000:
-            step = 300
+            return 800
         elif 2501 <= total <= 5000:
-            step = 200
+            return 300
         elif 1001 <= total <= 2500:
-            step = 100
-        elif 101 <= total <= 500:
+            return 100
+        elif 101 <= total <= 1000:
             return 20
-        return 1
+        else:
+            return 1
+
 
