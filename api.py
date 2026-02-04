@@ -14,6 +14,7 @@ class Api_requests:
             params={'lat': lat, 'lon': lon},
             headers=headers
         )
+        print(response.json())
         return response.json() ##dict 
     def yandex_fact_temp(self, ya_responce: dict) -> float:
         fact = ya_responce["fact"]
@@ -27,3 +28,6 @@ class Api_requests:
         fact = ya_responce["fact"]
         fact_condition = fact['condition']
         return fact_condition   
+    def yandex_fact_cloudness(self, ya_responce: dict) -> int:
+        fact = ya_responce["fact"]
+        fact_cloudness = fact['cloudness']

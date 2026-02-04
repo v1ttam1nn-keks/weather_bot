@@ -1,10 +1,10 @@
 from kml import Kml_Parser
 from alg import GetCloudBase
 from api import Api_requests
-
-yandex_key = ''
-
-
+import os
+from dotenv import load_dotenv
+load_dotenv('.env')
+yandex_key = os.getenv("yandex_key")
 
 class Dispatcher:
     def __init__(self):

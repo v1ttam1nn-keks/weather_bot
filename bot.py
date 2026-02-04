@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 import matplotlib.pyplot as plt
 from telegram import Update
 from telegram.ext import (
@@ -8,14 +9,11 @@ from telegram.ext import (
     ContextTypes,
     filters,
 )
+from back import Dispatcher
 
-from back import Dispatcher   
+load_dotenv('.env')
 
-
-BOT_TOKEN = ""
-
-
-
+BOT_TOKEN = os.getenv("telegram_key")
 def build_plot(data: dict, output_file="plot.png"):
     coords = list(data.keys())
     clouds = [v['cloud_height'] for v in data.values()] 
