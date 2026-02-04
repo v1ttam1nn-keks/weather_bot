@@ -18,17 +18,18 @@ class Kml_Parser:
                 all_coords.append((float(lat), float(lon)))
         
         total_coords = len(all_coords)
-        print(total_coords)
         
-        if total_coords > 15000:
+        
+        if total_coords > 20000:
             return False
         
         step = self.calic_step(total_coords)
         
         coords_dict = {}
         for i in range(0, total_coords, step):
-            coords_dict[all_coords[i]] = {"cloud_height": 0.0}
+            coords_dict[all_coords[i]] = {"cloud_height": 0.0, "cloudness": None}
 
+        
         return coords_dict
 
 

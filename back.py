@@ -16,16 +16,17 @@ class Dispatcher:
     def from_epsi(self, kml_origin_dict):                
         api = Api_requests(yandex_key)
         cloud_alg = GetCloudBase()        
+        print(kml_origin_dict)
         for coords in kml_origin_dict:            
             lat, lon = coords           
             ya_response = api.yandex_req(lat, lon)                        
             T = api.yandex_fact_temp(ya_response)
-            RH = api.yandex_fact_humidity(ya_response)
-            print (T, RH)            
-            h_cloud = cloud_alg.formula_epsi(RH, T)            
-            kml_origin_dict[coords]["cloud_height"] = h_cloud       
-        return kml_origin_dict
-        
+            RH = api.yandex_fact_humidity(ya_response)            
+            h_cloud = cloud_alg.formula_epsi(RH, T)
+            cloudness = api.yandex_fact_cloudness(ya_response)
+            kml_origin_dict[coords]["cloud_height"] = h_cloud
+            kml_origin_dict[coords]["cloudness"] = cloudness       
+        return kml_origin_dict     
     
         
 
